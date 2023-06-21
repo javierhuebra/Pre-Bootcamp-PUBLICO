@@ -1,29 +1,42 @@
 <html>
 
 <body>
-	<div id='background'>
+	<div id='background' style="background-image: url(img/black_bg.jpg); background-repeat: no-repeat; width: 600px; height: 600px; background-size: cover;">
+		<h1 style="color: rgba(56, 101, 224, 0.671); font-family: Arial, Helvetica, sans-serif;">En este ejercicio el ninja mira para el lado donde va caminando y cambia de imagen en cada paso</h1>
 		<div id='character'
-			style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); width:59px; height:86px;'>
+			style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); width:59px; height:86px; filter: drop-shadow(0 0 10px white) ;'
+			
+			>
 		</div>
 	</div>
 	<script type="text/javascript">
-		var leftValue = 450, topValue = 100;
-
+		var leftValue = 450, topValue = 100, direction = 'down1', step=1;
+		
 		function update() {
+			step == 1 ? step = 2 : step = 1 //Cada vez que se updatea la funcion cambia el valor de step entre 1 y 2
 			document.getElementById("character").style.left = leftValue + "px"; //Se selecciona el elemento "character" y se le asigna una posicion X
 			document.getElementById("character").style.top = topValue + "px"; //Se selecciona el elemento "character" y se le asigna una posicion y
+
+			document.getElementById("character").style.backgroundImage = `url("img/${direction+step}.png")`; //Se le asigna por una variable en el template string y la imagen que se asociará a cada presion de tecla
 		}
 
 		document.onkeydown = function (e) { //Se activa cada vez que se presiona una tecla toda esta porcion de código
 			console.log(e);
 			if (e.keyCode == 37) { // LEFT
 				leftValue = Math.max(leftValue - 10, 0); //(Punto dos) Comprobación para no ir más allá de 0 en la coordenada left (Se usa el metodo Math.min y Math.max para encuadrar valores de 0 a 500)
+				
+				direction = 'left' //Se reemplaza el valor de direction con la imagen que mira para la izquierda
 			} else if (e.keyCode == 39) { // RIGHT
 				leftValue = Math.min(leftValue + 10, 500); //(Punto dos) Comprobación para no exceder 500 en la coordenada left
+				direction = 'right' //Se reemplaza el valor de direction con la imagen que mira para la derecha
+
 			} else if (e.keyCode == 40) { // DOWN
 				topValue = Math.min(topValue + 10, 500); //(Punto dos) Comprobación para no exceder 500 en la coordenada top
+				direction = 'down' //Se reemplaza el valor de direction con la imagen que mira para abajo
+
 			} else if (e.keyCode == 38) { // UP (Punto uno)
 				topValue = Math.max(topValue - 10, 0); //(Punto dos) Comprobación para no ir más allá de 0 en la coordenada top
+				direction = 'top' //Se reemplaza el valor de direction con la imagen que mira para arriba
 			}
 			update(); //Se invoca la funcion update
 		}
