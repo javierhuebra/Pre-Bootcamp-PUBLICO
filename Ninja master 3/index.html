@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ninja Man</title>
+
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+
+		}
+
+		.row {
+			display: flex;
+		}
+
+		.wall {
+			background-color: blue;
+			width: 80px;
+			height: 80px;
+
+			border: 1px solid black;
+
+		}
+
+		.blank {
+			background-color: rgb(0, 0, 0);
+			width: 80px;
+			height: 80px;
+
+
+			border: 1px solid black;
+		}
+
+		.sushi {
+
+			background-color: rgb(0, 0, 0);
+			width: 80px;
+			height: 80px;
+
+			background-image: url('img/sushi.png');
+			background-position: center;
+			background-repeat: no-repeat;
+
+
+			border: 1px solid black;
+		}
+
+		#ninjaman {
+			background-color: rgb(0, 0, 0);
+			width: 80px;
+			height: 80px;
+
+			background-image: url('img/ninja.gif');
+			background-position: center;
+			background-repeat: no-repeat;
+
+
+			border: 1px solid black;
+
+			position: absolute;
+			left: 80px;
+			top: 80px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="world"></div>
+	<div id="ninjaman"></div>
+</body>
+<script type="text/javascript">
+	let world = [
+		[1, 1, 1, 1, 1],
+		[1, 0, 2, 2, 1],
+		[1, 2, 1, 2, 1],
+		[1, 2, 2, 2, 1],
+		[1, 2, 1, 2, 1],
+		[1, 2, 2, 2, 1],
+		[1, 2, 1, 2, 1],
+		[1, 2, 2, 2, 1],
+
+
+	]
+	let worldDict = {
+		0: 'blank',
+		1: 'wall',
+		2: 'sushi'
+	}
+
+	const drawWorld = () => {
+		let output = ''
+
+		for (let row = 0; row < world.length; row++) {
+			output += "<div class = 'row' >"
+			for (let x = 0; x < world[row].length; x++) {
+				output += `<div class = ${worldDict[world[row][x]]} ></div>`
+			}
+			output += '</div>'
+		}
+
+		document.getElementById("world").innerHTML = output
+	}
+	drawWorld()
+
+	let ninjaman = {
+		x: 0,
+		y: 5
+	}
+
+	const drawNinjaMan = () => {
+		const character = document.getElementById('ninjaman')
+		
+		character.style.top = `${ninjaman.y * 80}px`
+		character.style.left = `${ninjaman.x * 80}px`
+	}
+	drawNinjaMan()
+</script>
+
+</html>
