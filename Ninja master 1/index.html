@@ -17,13 +17,13 @@
 		document.onkeydown = function (e) {
 			console.log(e);
 			if (e.keyCode == 37) { // LEFT
-				leftValue = Math.max(leftValue - 10, 0); // Comprobación para no ir más allá de 0 en la coordenada left
+				leftValue = Math.max(leftValue - 10, 0); //(Punto dos) Comprobación para no ir más allá de 0 en la coordenada left
 			} else if (e.keyCode == 39) { // RIGHT
-				leftValue = Math.min(leftValue + 10, 500); // Comprobación para no exceder 500 en la coordenada left
+				leftValue = Math.min(leftValue + 10, 500); //(Punto dos) Comprobación para no exceder 500 en la coordenada left
 			} else if (e.keyCode == 40) { // DOWN
-				topValue = Math.min(topValue + 10, 500); // Comprobación para no exceder 500 en la coordenada top
-			} else if (e.keyCode == 38) { // UP
-				topValue = Math.max(topValue - 10, 0); // Comprobación para no ir más allá de 0 en la coordenada top
+				topValue = Math.min(topValue + 10, 500); //(Punto dos) Comprobación para no exceder 500 en la coordenada top
+			} else if (e.keyCode == 38) { // UP (Punto uno)
+				topValue = Math.max(topValue - 10, 0); //(Punto dos) Comprobación para no ir más allá de 0 en la coordenada top
 			}
 			update();
 		}
