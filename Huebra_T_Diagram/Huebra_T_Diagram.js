@@ -1,4 +1,4 @@
-//Los diagramas T de cada fragmento de codigo serán comentados debajo del codigo
+//Los diagramas T de cada fragmento de codigo serán escritos en modo comentados debajo del codigo
 
 //PRIMER FRAGMENTO
 function muestraInformaciónContacto() {
