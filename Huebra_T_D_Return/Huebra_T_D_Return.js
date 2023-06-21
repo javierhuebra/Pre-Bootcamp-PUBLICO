@@ -86,3 +86,36 @@ function timesTwoAgain(num) {
 }
 var result = timesTwoAgain(3) + timesTwoAgain(5);
 console.log('result is', result);
+
+// Paso 1: Declaración de la función timesTwoAgain() que toma un parámetro num
+// Imprime 'num is' seguido del valor del parámetro num en la consola
+// Multiplica el parámetro num por 2 y asigna el resultado a la variable y
+// Retorna el valor de y
+
+// Paso 2: Llamada a la función timesTwoAgain() con el argumento 3 y se suma el resultado con la llamada a timesTwoAgain() con el argumento 5.
+// El resultado se asigna a la variable result.
+
+// Paso 3: Impresión del texto 'result is' seguido del valor de la variable result
+
+
+
+
+
+//FRAGMENTO SEIS
+function timesTwoAgain(num) {
+    console.log('num is', num);
+    var y = num*2;
+    return y;
+}
+var result = timesTwoAgain(3) + timesTwoAgain(5);
+console.log('result is', result);
+
+// Paso 1: Declaración de la función timesTwoAgain() que toma un parámetro num
+// Imprime 'num is' seguido del valor del parámetro num en la consola
+// Multiplica el parámetro num por 2 y asigna el resultado a la variable y
+// Retorna el valor de y
+
+// Paso 2: Llamada a la función timesTwoAgain() con el argumento 3 y se suma el resultado con la llamada a timesTwoAgain() con el argumento 5.
+// El resultado se asigna a la variable result.
+
+// Paso 3: Impresión del texto 'result is' seguido del valor de la variable result
