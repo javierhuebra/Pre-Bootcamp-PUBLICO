@@ -1,4 +1,4 @@
-En este ejercicio se le aplicó mobilidad acotada a las dimensiones del mapa al heroe (nave)
+En este ejercicio se le aplicó movilidad acotada a las dimensiones del mapa al heroe (nave)
 - Se le proporciono avance y retroceso acotado
 - Se cambio el skin de los enemigos y del heroe
 - Se le cambio el skin al fondo, la batalla se fue a las estrellas
