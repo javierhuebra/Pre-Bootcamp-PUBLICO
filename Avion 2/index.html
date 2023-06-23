@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Aviones 1</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		#ocean{
+			background-image: url('img/estrellas.jpg');
+			width: 900px;
+			height: 700px;
+			
+		}
+		
+		.player{
+			filter: drop-shadow(0px 0px 5px rgb(250, 250, 250));
+			position: absolute;
+			background-image: url('img/heroe.png');
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			width: 70px;
+			height: 75px;
+		}
+		.enemy{
+			filter: drop-shadow(0px 0px 5px rgb(255, 0, 0));
+			
+			position: absolute;
+			background-image: url('img/navegrosa.png');
+			background-size: contain;
+			background-position: center;
+			background-repeat: no-repeat;
+			transform: rotateX(180deg);
+			
+			
+			width: 70px;
+			height: 75px;
+			
+		}
+		.misile{
+			width: 2px;
+			height: 10px;
+			position: absolute;
+			background-color: yellow;
+		}
+	</style>
+</head>
+
+<body>
+
+
+
+	<div id="ocean">
+		<div id="players"></div>
+		<div id="enemies"></div>
+		<div id="missiles"></div>
+	</div>
+
+
+	<script type="text/javascript">
+		let player = {
+			left: 450,
+			top: 620
+		}
+
+		let enemies = [
+			{left: 250, top: 50},
+			{left: 350, top: 100},
+			{left: 450, top: 50},
+			{left: 550, top: 100},
+			{left: 650, top: 50},
+
+		]
+
+		let misiles = []
+
+		const drawPlayer = () =>{
+			let content = `<div class= 'player' style='left:${player.left}px; top:${player.top}px'></div>`
+			document.getElementById("players").innerHTML = content
+			
+		}
+
+		
+
+		const drawEnemies = () => {
+			let content = ''
+
+			for(let idx=0; idx<enemies.length; idx++){
+				content += `<div class= 'enemy' style='left: ${enemies[idx].left}px; top: ${enemies[idx].top}px' ></div>`
+			}
+
+			document.getElementById("enemies").innerHTML = content
+		}
+
+		const drawMissiles = () =>{
+			let content = ''
+			for(let idx=0; idx<misiles.length; idx++){
+				content += `<div class= 'misile' style='left: ${misiles[idx].left}px; top: ${misiles[idx].top}px' ></div>`
+			}
+			document.getElementById("missiles").innerHTML = content
+		}
+		
+
+		const moveEnemies = () => {
+			for(let idx=0; idx<enemies.length; idx++){
+				if(enemies[idx].top < 625) enemies[idx].top = enemies[idx].top + 1
+			}
+		}
+
+		const moveMissiles = () => {
+			for(let idx=0; idx<misiles.length; idx++){
+				misiles[idx].top = misiles[idx].top - 15
+			}
+		}
+
+		document.onkeydown = function(e) {
+			console.log(e)
+			if(e.keyCode == 37 && player.left>0){ //left
+				player.left = player.left - 10
+			}
+			if(e.keyCode == 39 && player.left<830){ //right
+				player.left = player.left + 10
+			}
+			if(e.keyCode == 38 && player.top>500){ //up
+				player.top = player.top - 10
+			}
+			if(e.keyCode == 40 && player.top<620){ //back
+				player.top = player.top + 10
+			}
+			if(e.keyCode == 32){ //Fire
+				misiles.push({left: (player.left + 34) , top: (player.top - 8)})
+				drawMissiles()
+				
+			}
+			drawPlayer()
+		}
+
+		const gameLoop = () => {
+			console.log("Game loop is running")
+
+			drawPlayer()
+			moveEnemies()
+			drawEnemies()
+			drawMissiles()
+			moveMissiles()
+			setTimeout(gameLoop, 50)
+		}
+
+		gameLoop()
+
+	</script>
+</body>
+
+</html>
