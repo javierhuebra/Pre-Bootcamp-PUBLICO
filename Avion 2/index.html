@@ -4,19 +4,22 @@
 <head>
 	<title>Aviones 1</title>
 	<style type="text/css">
-		*{
+		* {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
 		}
-		#ocean{
+
+		#ocean {
 			background-image: url('img/estrellas.jpg');
 			width: 900px;
 			height: 700px;
-			
+
+			position: relative;
+
 		}
-		
-		.player{
+
+		.player {
 			filter: drop-shadow(0px 0px 5px rgb(250, 250, 250));
 			position: absolute;
 			background-image: url('img/heroe.png');
@@ -26,39 +29,84 @@
 			width: 70px;
 			height: 75px;
 		}
-		.enemy{
+
+		.enemy {
 			filter: drop-shadow(0px 0px 5px rgb(255, 0, 0));
-			
+
 			position: absolute;
 			background-image: url('img/navegrosa.png');
 			background-size: contain;
 			background-position: center;
 			background-repeat: no-repeat;
 			transform: rotateX(180deg);
-			
-			
+
+
 			width: 70px;
 			height: 75px;
-			
+
 		}
-		.misile{
+
+		.misile {
 			width: 2px;
 			height: 10px;
 			position: absolute;
 			background-color: yellow;
 		}
+
+		#body{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-image: url('img/fondo.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			height: 100vh;
+		}
+		.tablero{
+			display: flex;
+		}
+		.details{
+			width: 150px;
+			background-color: gray;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		.box{
+			width: 90%;
+			height: 50px;
+			background-color: rgb(78, 78, 78);
+			margin-top: 8px;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			color: white;
+			font-weight: bold;
+		}
 	</style>
 </head>
 
-<body>
+<body id="body">
 
 
-
-	<div id="ocean">
-		<div id="players"></div>
-		<div id="enemies"></div>
-		<div id="missiles"></div>
+	<div class="tablero">
+		<div id="ocean">
+			<div id="players"></div>
+			<div id="enemies"></div>
+			<div id="missiles"></div>
+		</div>
+		<div class="details">
+			<div class="box">
+				<p>Nivel</p>
+				<p id="nivel">0</p>
+			</div>
+		</div>
 	</div>
+	
 
 
 	<script type="text/javascript">
@@ -68,86 +116,140 @@
 		}
 
 		let enemies = [
-			{left: 250, top: 50},
-			{left: 350, top: 100},
-			{left: 450, top: 50},
-			{left: 550, top: 100},
-			{left: 650, top: 50},
+			{ left: 250, top: 50 },
+			{ left: 350, top: 100 },
+			{ left: 450, top: 50 },
+			{ left: 550, top: 100 },
+			{ left: 650, top: 50 }, 
 
 		]
 
 		let misiles = []
 
-		const drawPlayer = () =>{
+		const drawPlayer = () => {
 			let content = `<div class= 'player' style='left:${player.left}px; top:${player.top}px'></div>`
 			document.getElementById("players").innerHTML = content
-			
+
 		}
 
-		
+
 
 		const drawEnemies = () => {
 			let content = ''
 
-			for(let idx=0; idx<enemies.length; idx++){
+			for (let idx = 0; idx < enemies.length; idx++) {
 				content += `<div class= 'enemy' style='left: ${enemies[idx].left}px; top: ${enemies[idx].top}px' ></div>`
 			}
 
 			document.getElementById("enemies").innerHTML = content
 		}
 
-		const drawMissiles = () =>{
+		const drawMissiles = () => {
 			let content = ''
-			for(let idx=0; idx<misiles.length; idx++){
+			for (let idx = 0; idx < misiles.length; idx++) {
 				content += `<div class= 'misile' style='left: ${misiles[idx].left}px; top: ${misiles[idx].top}px' ></div>`
 			}
 			document.getElementById("missiles").innerHTML = content
 		}
-		
+
 
 		const moveEnemies = () => {
-			for(let idx=0; idx<enemies.length; idx++){
-				if(enemies[idx].top < 625) enemies[idx].top = enemies[idx].top + 1
+			for (let idx = 0; idx < enemies.length; idx++) {
+				if (enemies[idx].top < 625) enemies[idx].top = enemies[idx].top + 1
+				else return true
 			}
 		}
 
 		const moveMissiles = () => {
-			for(let idx=0; idx<misiles.length; idx++){
+			for (let idx = 0; idx < misiles.length; idx++) {
 				misiles[idx].top = misiles[idx].top - 15
 			}
 		}
 
-		document.onkeydown = function(e) {
-			console.log(e)
-			if(e.keyCode == 37 && player.left>0){ //left
+		const comprobarColision = () => {
+			for (let idxMisil = 0; idxMisil < misiles.length; idxMisil++) {
+				for (let idxEnemy = 0; idxEnemy < enemies.length; idxEnemy++) {
+					const misil = misiles[idxMisil];
+					const enemy = enemies[idxEnemy];
+					const distanciaVertical = Math.abs(misil.top - enemy.top);
+					const distanciaHorizontal = Math.abs(misil.left - enemy.left-40);
+
+					if (distanciaVertical <= 10 && distanciaHorizontal <= 20 ) { 
+						console.log(`¡El disparo ha impactado en enemigo[${idxEnemy}]`, );
+						console.log("Y ",distanciaVertical)
+						console.log("X ",distanciaHorizontal)
+						enemies.splice(idxEnemy,1)
+					}
+				}
+			}
+		}
+
+		const cargarEnemigos = (enemigos) => {
+			let left = 100
+			let top = 100
+			for(let i=0;i<enemigos;i++){
+				if(top == 100){
+					enemies.push({left: left, top: 50})
+					top = 50
+					left
+				}else{
+					enemies.push({left: left, top: 100})
+					top = 100
+				}
+
+				left += 100
+				
+			}
+		}
+
+		document.onkeydown = function (e) {
+			
+			if (e.keyCode == 37 && player.left > 0) { //left
 				player.left = player.left - 10
 			}
-			if(e.keyCode == 39 && player.left<830){ //right
+			if (e.keyCode == 39 && player.left < 830) { //right
 				player.left = player.left + 10
 			}
-			if(e.keyCode == 38 && player.top>500){ //up
+			if (e.keyCode == 38 && player.top > 500) { //up
 				player.top = player.top - 10
 			}
-			if(e.keyCode == 40 && player.top<620){ //back
+			if (e.keyCode == 40 && player.top < 620) { //back
 				player.top = player.top + 10
 			}
-			if(e.keyCode == 32){ //Fire
-				misiles.push({left: (player.left + 34) , top: (player.top - 8)})
+			if (e.keyCode == 32) { //Fire
+				misiles.push({ left: (player.left + 34), top: (player.top - 8) })
 				drawMissiles()
-				
+
 			}
 			drawPlayer()
 		}
-
+		let fluidez = 50
+		let nivel = 1
+		let marcarNivel = document.getElementById('nivel')
 		const gameLoop = () => {
-			console.log("Game loop is running")
+			
 
 			drawPlayer()
-			moveEnemies()
+			let terminar = moveEnemies()
+			if(terminar){
+				console.log("perdiste")
+				return
+			}
 			drawEnemies()
 			drawMissiles()
 			moveMissiles()
-			setTimeout(gameLoop, 50)
+
+			comprobarColision()
+
+			if(enemies.length == 0){
+				cargarEnemigos(8)
+				fluidez -= 5
+				nivel++
+				marcarNivel.textContent = nivel
+
+			}
+
+			setTimeout(gameLoop, fluidez)
 		}
 
 		gameLoop()
