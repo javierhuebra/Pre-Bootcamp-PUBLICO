@@ -19,11 +19,16 @@
 		}
 
 		.wall {
-			background-color: blue;
+
 			width: 40px;
 			height: 40px;
 
-			border: 1px solid black;
+
+
+			background-image: url(img/ladrillo.png);
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
 
 		}
 
@@ -58,6 +63,23 @@
 
 			background-image: url('img/onigiri.png');
 			background-position: center;
+			background-repeat: no-repeat;
+
+
+			border: 1px solid black;
+
+
+		}
+
+		.cofre {
+
+			background-color: rgb(0, 0, 0);
+			width: 40px;
+			height: 40px;
+
+			background-image: url('img/cofre.png');
+			background-position: center;
+			background-size: contain;
 			background-repeat: no-repeat;
 
 
@@ -151,12 +173,16 @@
 
 		.container {
 			display: flex;
+			box-shadow: 0px 0px 15px white;
+
+
 		}
 
 		.hidden {
 			display: none;
 		}
-		#fin-juego{
+
+		#fin-juego {
 			background-color: black;
 			color: red;
 			position: absolute;
@@ -168,22 +194,30 @@
 			font-weight: bold;
 			font-size: 25px;
 		}
-		.boton{
+
+		.boton {
 			padding: 10px 20px;
 			margin-top: 10px;
 			margin-left: 10px;
 			cursor: pointer;
 		}
-		.ninjacito{
+
+		.ninjacito {
 			width: 80px;
 			height: 80px;
 			background-image: url('img/ninja.gif');
 			background-size: contain;
 		}
+
+		#body {
+			background-color: black;
+			display: flex;
+
+		}
 	</style>
 </head>
 
-<body>
+<body id="body">
 	<div class="container">
 		<div id="world"></div>
 		<div class="puntaje">
@@ -201,7 +235,7 @@
 		<p>GAME OVER</p>
 		<p>Murio 3 Veces</p>
 		<div class="ninjacito"></div>
-		<p>Su puntaje fue de: <span id="puntos">0</span> puntos comiendo sushi y onigiris</p>
+		<p>Su puntaje fue de: <span id="puntos">0</span> puntos </p>
 		<a href=""><button class="boton">¡Volver a Jugar!</button></a>
 	</div>
 
@@ -209,19 +243,28 @@
 </body>
 <script type="text/javascript">
 	let puntaje = 0
+	let position = 'right'
 
-	
-	
+
 
 	const generateRandomWorld = () => {
 		const world = [];
 		const numRows = 22;
 		const numColumns = 10;
-
+		let cofres = 0
 		for (let i = 0; i < numRows; i++) {
 			const row = [];
 			for (let j = 0; j < numColumns; j++) {
-				const randomValue = Math.floor(Math.random() * 4); // Genera un número aleatorio entre 0 y 3 inclusive
+				let randomValue = 0
+				if (cofres < 5) {
+					randomValue = Math.floor(Math.random() * 5); // Genera un número aleatorio entre 0 y 4 inclusive
+					if (randomValue == 4) cofres++
+				} else {
+					randomValue = Math.floor(Math.random() * 4); // Genera un número aleatorio entre 0 y 3 inclusive
+
+				}
+
+
 				row.push(randomValue);
 			}
 			world.push(row);
@@ -236,7 +279,8 @@
 		0: 'blank',
 		1: 'wall',
 		2: 'sushi',
-		3: 'onigiri'
+		3: 'onigiri',
+		4: 'cofre'
 	}
 
 	const drawWorld = () => {
@@ -267,7 +311,7 @@
 
 		const personajePos = character.getBoundingClientRect();
 		const fantasmaPos = fantasma.getBoundingClientRect();
-		
+
 		let directionX = personajePos.left < fantasmaPos.left ? -1 : 1;
 		let directionY = personajePos.top < fantasmaPos.top ? -1 : 1;
 
@@ -279,7 +323,7 @@
 			personajePos.right > fantasmaPos.left &&
 			personajePos.top < fantasmaPos.bottom &&
 			personajePos.bottom > fantasmaPos.top
-		){
+		) {
 			console.log('¡El fantasma ha atrapado al personaje!');
 			drawFantasmas(fantasma1, 10, 19)
 			drawFantasmas(fantasma2, 8, 19)
@@ -312,6 +356,16 @@
 
 		character.style.top = `${ninjaman.y * 40}px`
 		character.style.left = `${ninjaman.x * 40}px`
+
+		if (position === "right") {
+			character.style.transform = "rotate(0deg)"; // Sin rotación
+		} else if (position === "down") {
+			character.style.transform = "rotate(90deg)"; // Rotación de 90 grados hacia la derecha
+		} else if (position === "left") {
+			character.style.transform = "rotate(180deg) scaleY(-1)"; // Rotación de 180 grados hacia abajo
+		} else if (position === "up") {
+			character.style.transform = "rotate(-90deg)"; // Rotación de -90 grados hacia la izquierda
+		}
 	}
 
 	const drawFantasmas = (fantasma, x, y) => {
@@ -327,7 +381,7 @@
 		if (e.keyCode == 37) { //LEFT
 			if (world[ninjaman.y][ninjaman.x - 1] != 1 && world[ninjaman.y][ninjaman.x - 1] != null) {
 				ninjaman.x--
-
+				position = 'left'
 			}
 
 
@@ -335,16 +389,19 @@
 		if (e.keyCode == 39) { //RIGHT
 			if (world[ninjaman.y][ninjaman.x + 1] != 1 && world[ninjaman.y][ninjaman.x + 1] != null) {
 				ninjaman.x++
+				position = 'right'
 			}
 		}
 		if (e.keyCode == 40) { //DOWN
 			if (world[ninjaman.y + 1][ninjaman.x] != 1 && world[ninjaman.y + 1][ninjaman.x] != null) {
 				ninjaman.y++
+				position = 'down'
 			}
 		}
 		if (e.keyCode == 38) { //UP
 			if (world[ninjaman.y - 1][ninjaman.x] != 1 && world[ninjaman.y - 1][ninjaman.x] != null) {
 				ninjaman.y--
+				position = 'up'
 			}
 		}
 
@@ -353,9 +410,12 @@
 			if (world[ninjaman.y][ninjaman.x] == 2) {
 				puntaje += 10
 			}
-			
+
 			if (world[ninjaman.y][ninjaman.x] == 3) {
 				puntaje += 20
+			}
+			if (world[ninjaman.y][ninjaman.x] == 4) {
+				puntaje += 50
 			}
 		}
 

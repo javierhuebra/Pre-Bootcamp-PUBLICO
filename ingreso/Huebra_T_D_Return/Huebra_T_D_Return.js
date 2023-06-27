@@ -1,5 +1,5 @@
 
-//DIAGRAMA UNO
+//DIAGRAMA UNO *********************************************************************************************************************************
 function hello() {
     console.log('hello');
 }
@@ -19,7 +19,7 @@ console.log('Dojo');
 
 
 
-//DIAGRAMA DOS
+//DIAGRAMA DOS *********************************************************************************************************************************
 function hello() {
     console.log('hello');
     return 15;
@@ -37,7 +37,7 @@ console.log('result is', result);
 
 
 
-//DIAGRAMA TRES
+//DIAGRAMA TRES *********************************************************************************************************************************
 function numPlus(num) {
     console.log('num is', num);
     return num+15;
@@ -55,7 +55,7 @@ console.log('result is', result);
 
 
 
-//DIAGRAMA CUATRO
+//DIAGRAMA CUATRO *********************************************************************************************************************************
 var num = 15;
 console.log(num);
 function logAndReturn(num2){
@@ -78,7 +78,7 @@ console.log(num);
 
 
 
-//DIAGRAMA CINCO
+//DIAGRAMA CINCO *********************************************************************************************************************************
 function timesTwoAgain(num) {
     console.log('num is', num);
     var y = num*2;
@@ -101,7 +101,7 @@ console.log('result is', result);
 
 
 
-//FRAGMENTO SEIS
+//FRAGMENTO SEIS *********************************************************************************************************************************
 function timesTwoAgain(num) {
     console.log('num is', num);
     var y = num*2;
@@ -121,7 +121,7 @@ console.log('result is', result);
 // Paso 3: Impresión del texto 'result is' seguido del valor de la variable result
 
 
-//FRAGMENTO SIETE
+//FRAGMENTO SIETE *********************************************************************************************************************************
 function sumNums(num1, num2) {  
     return num1+num2;
  }
@@ -133,7 +133,7 @@ function sumNums(num1, num2) {
  // Se llama dentro de un console log una segunda vez a la funcion con valores 3 y 5, retorna 8 e imprime 8
 
 
- //FRAGMENTO OCHO
+ //FRAGMENTO OCHO *********************************************************************************************************************************
  function printSumNums(num1, num2) {
     console.log(num1);   
     return num1+num2;
@@ -148,7 +148,7 @@ function sumNums(num1, num2) {
 
 
 
-//FRAGMENTO NUEVE
+//FRAGMENTO NUEVE *********************************************************************************************************************************
 function sumNums(num1, num2) {
     var sum = num1 + num2;
     console.log('sum is', sum);
@@ -167,7 +167,7 @@ console.log('result is', result);
 
 
 
-//FRAGMENTO DIEZ
+//FRAGMENTO DIEZ *********************************************************************************************************************************
 function sumNums(num1, num2) {
     var sum = num1 + num2;
     console.log('sum is', sum);
@@ -176,7 +176,7 @@ function sumNums(num1, num2) {
 var result = sumNums(2,3) + sumNums(3,sumNums(2,1)) + sumNums(sumNums(2,1),sumNums(2,3));
 console.log('result is', result);
 
-// Suma los valores de num1 y num2 y los asigna a la variable sum
+// Suma los valores de num1 y num2 y los asigna a la variable que se crea llamada sum
 // Imprime en la consola el mensaje 'sum is' seguido del valor de sum
 // Retorna el valor de sum
 // Llama a sumNums con los argumentos (2, 3)
