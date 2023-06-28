@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Mi Formulario de Registro</h1>
+    <form>
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="apellido">Apellido: </label>
+        <input type="text" id="apellido" name="apellido">
+
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email">
+
+        <label for="password">Password: </label>
+        <input type="paswword" id="password" name="password">
+
+        <label for="re_password">Confirmar: </label>
+        <input type="paswword" id="re_password" name="re_password">
+
+        <label for="cumple">Cupleaños: </label>
+        <input type="date" id="cumple" name="cumple">
+
+        <div>
+            <input type="radio" id="hombre" name="genero" value="hombre">
+            <label class="radio" for="hombre">Masculino</label>
+
+            <input type="radio" id="mujer" name="genero" value="mujer">
+            <label class="radio" for="mujer">Femenino</label>
+
+            <input type="radio" id="rojo" name="genero" value="rojo">
+            <label class="radio" for="rojo">Otro</label>
+
+        </div>
+        <label for="descripcion">Una breve descripción de ti:</label>
+        <textarea name="descripcion" id="descripcion" cols="30" rows="10"></textarea>
+        
+        <label for="fruta">Lenguaje favorito</label>
+        <select id="fruta" name="fruta">
+            <option value="c">C</option>
+            <option value="java">Java</option>
+            <option value="javascript">Javascript</option>
+            <option value="c++">C++</option>
+        </select>
+        
+        <input class="btn" type="submit" value="Enviar">
+    </form>
+
+</body>
+
+</html>
