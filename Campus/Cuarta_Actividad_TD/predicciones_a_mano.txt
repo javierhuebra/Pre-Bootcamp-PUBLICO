@@ -1,0 +1,87 @@
+for(var i=0; i<5;i++){   
+   console.log(i);
+}
+
+Imprime el valor de i cinco veces
+
+------------------------------------------------------------------------------------------
+
+for(var i=0; i<5; i++)
+{
+   i = i + 1;  
+   console.log(i);
+}
+
+Le cambia el valor a i en cada iteración.
+Le suma 1 por iteración e imprime el valor modificado
+Itera 5 veces
+
+
+------------------------------------------------------------------------------------------
+
+for(var i=0; i<5; i++)
+{
+   i = i + 3; 
+   console.log(i);
+}
+
+Lo mismo que el anterior pero aumenta en 3
+
+
+------------------------------------------------------------------------------------------
+
+function y(num1, num2){   
+   return num1+num2;
+}
+console.log(y(2,3))
+console.log(y(3,5))
+
+La funcion retorna la suma de dos valores
+Se llama dentro de un console.log por ende se imprime dos veces la funcion con valores 2 y 3, y luego 3 y 5
+
+
+------------------------------------------------------------------------------------------
+
+function y(num1, num2){
+   console.log(num1);   
+   return num1+num2;
+}
+console.log(y(2,3))
+console.log(y(3,5))
+
+Lo mismo que el anterior solo que se imprime el primer valor de la funcion antes del return de la suma,
+todo lo otro es igual
+
+
+------------------------------------------------------------------------------------------
+
+a = 15;
+console.log(a);
+function y(a){
+   console.log(a);   
+   return a;
+}
+b = y(10);
+console.log(b);
+
+Se declara la variable a con valor 15
+Se imprime a
+Se crea una funcion que recibe un parametro
+Se imprime el parametro dentro de la funcion y se retorna sin modificarlo
+
+en el programa a b se le asigna el retorno de la funcion que tiene parametro 10
+se imprime el valor de b que es 10 porque la fc no hace nada, retorna lo que le entra.
+
+------------------------------------------------------------------------------------------
+
+a = 15;
+console.log(a);
+function y(a){
+   console.log(a);   
+   return a*2;
+}
+b = y(10);
+console.log(b);
+
+Es lo mismo que el anterior solo que el retorno ahora se multiplica por 2
+Por ende el console.log de b ahora da 20
