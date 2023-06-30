@@ -1,0 +1,227 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    background-color: rgb(245, 245, 245);
+    width: 970px;
+}
+/* ESTILOS HEADER ************************************************/
+header{
+    
+    min-height: 150px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.logo{
+    position: absolute;
+    display: flex;
+    
+    align-items: center;
+    top: -6%;
+    left: 0;
+    
+}
+.img-logo{
+    width: 130px;
+}
+.tit-logo{
+    font-size: 55px;
+    font-weight: 100;
+}
+.logo-span{
+    color: #24669f;
+}
+.sub-tit-logo{
+    font-size: 28px;
+    font-weight: 100;
+    background-image: linear-gradient(180deg, #26679f 20%, #7290aa 50%, #26679f 80%);
+    color: white;
+    padding: 15px 15px;
+}
+
+/* ESTILOS DEL MAIN ************************************************* */
+main{
+    display: flex;
+    height: calc(100vh - 150px);
+}
+article{
+    height: 100%;
+    
+}
+.col-izquierda{
+    width: 20%;
+}
+.col-derecha{
+    width: 80%;
+    padding-left: 35px;
+    padding-right: 15px;
+}
+
+/* Columna derecha ------------*/
+
+.sec-1{
+    
+    height: 10%;
+
+    border-bottom: 1px solid rgba(128, 128, 128, 0.548);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.sec-1-logo{
+    display: flex;
+    align-items: center;
+}
+.sec-1-logo img{
+    width: 20px;
+}
+.sec-1-logo p{
+    font-size: 20px;
+    color: #24669f;
+}
+.cont-telefono{
+    
+    height: 100%;
+    width: 35%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.phone-img{
+    width: 23%;
+}
+.cont-texto-telefono{
+    width: 77%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.num-text{
+    color: #04aeda;
+    font-size: 30px;
+    font-weight: bold;
+}
+.comun-text{
+    font-size: 13px;
+}
+
+/* estilos debajo de la linea horizontal */
+.span-celeste{
+    color: #04aeda;
+    
+}
+.lista{
+    
+    padding: 0px 35px;
+}
+.img-server{
+    margin: 10px 0px;
+    margin-left: 150px;
+    
+    width: 400px;
+}
+.numerica{
+    list-style-type: decimal;
+}
+.contenedor-final{
+    
+    border: 5px solid  #24669f;;
+    width: 100%;
+    height: 150px;
+    margin-top: 25px;
+}
+.tit-main{
+    color: #24669f;
+}
+.contenedor-final{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.img-html{
+    width: 20%;
+    margin: 0px 10px;
+}
+
+/* Columna izquierda ------------*/
+.sec-1-i{
+    height: 28%;
+    
+    border-bottom: 1px solid rgba(128, 128, 128, 0.418);
+}
+.span-red{
+    color: red;
+}
+.text-izq{
+    font-weight: bold;
+    margin: 15px 0px;
+    padding-left: 5px;
+}
+.txt-2{
+    font-size: 13px;
+}
+.btn{
+    width: 100%;
+    padding: 13px 0px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+}
+.btn1{
+    margin-top: 20px;
+    background-image: linear-gradient(180deg, #d8d9da 0%, #26679f 100%);
+    color: white;
+}
+.btn2{
+    
+    background-image: linear-gradient(180deg, #e2e2e2 0%, #da8301 100%);
+    color: white;
+}
+.sec-2-i{
+    margin-top: 30px;
+    height: 45%;
+    background-color: red;
+    background-image: url(img/ad_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 15px;
+}
+.ninja{
+    width: 70%;
+}
+.text-ninja{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.btn3{
+    color: white;
+    
+    background-image: linear-gradient(180deg, #d8d9da 0%, #068bff 100%);
+}
+/* Tarea para Coding Dojo - Huebra Javier */
