@@ -49,4 +49,24 @@ ALTER TABLE dojos
 DROP FOREIGN KEY fk_dojos_usuarios,
 DROP COLUMN id_usuario;
 
+-- Join para ver que onda
+SELECT * FROM usuarios
+JOIN dojos ON dojos.id = usuarios.id_dojo;
+
+-- JOIN para una relacion muchos a muchos con dos tablas que aca no tengo
+SELECT * FROM orders 
+JOIN items_orders ON orders.id = items_orders.order_id 
+JOIN items ON items.id = items_orders.item_id;
+
+
+
+
+
+
+
+
+
+
+
+
 
