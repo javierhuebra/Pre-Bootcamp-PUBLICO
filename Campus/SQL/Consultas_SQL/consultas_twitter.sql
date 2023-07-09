@@ -37,6 +37,17 @@ LEFT JOIN tweets
 ON faves.tweet_id = tweets.id
 WHERE users.id = 1 OR users.id = 2;
 
+-- VER los usuarios que sigue el usuario con determinado id
+SELECT users.first_name as followed, users2.first_name as follower
+FROM users
+LEFT JOIN follows
+ON users.id = follows.followed_id
+LEFT JOIN users as users2
+ON users2.id = follows.follower_id
+WHERE users.id = 1;
+
+
+
 
 
 

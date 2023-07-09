@@ -58,6 +58,9 @@ SELECT * FROM orders
 JOIN items_orders ON orders.id = items_orders.order_id 
 JOIN items ON items.id = items_orders.item_id;
 
+-- Join para seleccionar otras cosas de tabla
+SELECT usuarios.nombre, dojos.nombre AS dojo_perteneciente FROM usuarios
+JOIN dojos ON dojos.id = usuarios.id_dojo;
 
 
 
