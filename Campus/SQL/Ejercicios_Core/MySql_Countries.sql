@@ -1,5 +1,7 @@
 -- 1) Paises que hablan esloveno
-SELECT * FROM languages WHERE language = 'slovak';
+SELECT countries.name, languages.language, languages.percentage FROM countries 
+JOIN languages ON languages.country_id = countries.id
+WHERE languages.language = 'Slovene';
 
 -- 2) Ciudades de cada país
 SELECT countries.name, COUNT(*) AS total_cities
@@ -9,10 +11,17 @@ GROUP BY countries.name
 ORDER BY total_cities DESC;
 
 -- 3) Ciudades de México
-SELECT name,country_code FROM cities WHERE country_code = 'MEX';
+SELECT * 
+FROM cities 
+WHERE country_code = 'MEX' AND population > 500000 
+ORDER BY population DESC;
 
--- 4) Ta dificil 
-
+-- 4) Porcentajes je
+SELECT  countries.name, languages.language, languages.percentage
+FROM countries
+JOIN languages ON countries.id = languages.country_id
+WHERE languages.percentage > 89
+ORDER BY languages.percentage ASC;
 
 -- 5) Paises con área de superficie inferior a 501 y una población superior a 100,000
 SELECT name,surface_area,population FROM countries WHERE surface_area < 501 AND population > 100000;
@@ -38,7 +47,7 @@ WHERE countries.code = 'ARG' AND LOWER(district) = 'buenos aires' AND cities.pop
 SELECT region, COUNT(*) AS nro_paises
 FROM countries
 GROUP BY region
-ORDER BY nro_paises ASC;
+ORDER BY nro_paises DESC;
 
 
 
