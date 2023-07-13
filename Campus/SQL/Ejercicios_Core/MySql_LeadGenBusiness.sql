@@ -58,6 +58,19 @@ WHERE leads.registered_datetime BETWEEN '2011-01-01' AND '2011-12-31'
 GROUP BY sites.domain_name, clients.first_name, clients.last_name,clients.client_id
 ORDER BY clients.client_id;
 
+-- Codigo correcto
+SELECT CONCAT(clients.first_name,' ', clients.last_name ) AS client , 
+sites.domain_name AS website, 
+COUNT(leads.leads_id) AS leads 
+FROM clients
+JOIN sites ON sites.client_id = clients.client_id
+JOIN leads ON leads.site_id = sites.site_id
+WHERE YEAR(leads.registered_datetime) = 2011
+GROUP BY sites.site_id
+ORDER BY clients.client_id
+;
+
+
 -- 9) Escriba una sola consulta que recupere los ingresos totales recaudados de cada cliente para cada mes del año. Pídalo por ID de cliente.
 SELECT clients.first_name,SUM(billing.amount),clients.client_id, MONTH(billing.charged_datetime) FROM billing
 JOIN clients ON clients.client_id = billing.client_id
