@@ -21,10 +21,10 @@ public class ExceptionsTest {
             for(int i=0; i<arrObjList.size(); i++){
                 arregloInt[i] = (int) arrObjList.get(i);
             }
-            
+
             System.out.println("Conversión realizada satisfactoriamente");
         }catch(ClassCastException e){
-            System.out.println("Error de conversión: " + e.getMessage());
+            System.out.println("\u001B[31mError de conversión: " + e.getMessage());//Texto en rojo
         }
         
     }
