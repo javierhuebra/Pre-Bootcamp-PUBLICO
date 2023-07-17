@@ -1,7 +1,7 @@
 package OOP_Java.masterobjuno;
 
 public class Human {
-    private int strength, stealth, intelligence, health;
+    public int strength, stealth, intelligence, health;
 
     //Metodo para instanciar por default
     public Human(){
@@ -26,6 +26,17 @@ public class Human {
 
     public void mostrarHealth(){
         System.out.println("La vida del Humano es: " + health);
+    }
+
+    public void verStats(){
+        System.out.println("Strenght: "+ strength);
+        System.out.println("Stealth: " + stealth);
+        System.out.println("Intelligence: " + intelligence);
+        System.out.println("Health: " + health);
+    }
+
+    public void setHealth(int valor){
+        health += valor;
     }
     
 }
