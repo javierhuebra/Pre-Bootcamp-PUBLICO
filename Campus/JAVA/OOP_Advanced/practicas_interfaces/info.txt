@@ -1,0 +1,21 @@
+Una Interfaz no es una clase, y mientras escribir 
+una Interfaz es similar a escribir una clase, 
+son conceptos muy diferentes. Una clase describe 
+los atributos y acciones de un objeto. Una Interfaz 
+establece acciones o comportamientos 
+que tienen que ser implementados en la clase.
+
+Una Interfaz es similar a una clase en lo siguiente:
+
+Una Interfaz puede contener cualquier cantidad de métodos.
+Una Interfaz es escrita en un archivo con extensión .java, con el nombre de la Interfaz coincidiendo con el nombre del archivo.
+El bytecode de una Interfaz aparece en un archivo .class.
+La Interfaz aparece en paquetes, y su correspondiente archivo bytecode debe estar en una estructura del directorio que coincida con el nombre del paquete.
+
+Sin embargo, una Interfaz es diferente de una clase en muchas formas, incluyendo:
+
+No puedes instanciar una Interfaz.
+Una Interfaz no contiene ningún constructor.
+Una Interfaz no puede contener campos de instancia. El único campo que puede aparecer en una Interfaz tiene que ser declarado con ambas palabras static y final. 
+Una Interfaz no es extendida por una clase, es implementada por una clase.
+Una Interfaz puede extender de múltiples Interfaz, una clase solo puede extender de una clase, pero puede ser implementada por múltiples Interfaz.

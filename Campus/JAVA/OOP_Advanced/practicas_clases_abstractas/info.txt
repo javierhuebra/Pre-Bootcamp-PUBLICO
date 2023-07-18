@@ -1,0 +1,13 @@
+Abstracto vs. Interfaz
+La documentación de Java lista algunos puntos sobre el uso de la clase abstracta vs. la interfaz. Las mostraremos a continuación:
+
+Considere utilizar una clase abstracta si alguna de las siguientes sentencias se puede aplicar a su situación:
+
+Quiere compartir código entre clases muy relacionadas.
+Espera que las clases que extiendan de su clase abstracta tengan muchos métodos o campos en común, o requieren de modificadores de acceso diferentes de public (como protected o private).
+Quiere declarar campos no-static o no-final. Esto le permite definir métodos que pueden acceder y modificar el estado del objeto al que pertenecen.
+Considere utilizar interfaces si alguna de las siguientes sentencias se puede aplicar a su situación:
+
+Espera que clases sin relacionar deban implementar su interfaz. Por ejemplo, las interfaces Comparable y Clonable son implementadas por muchas clases no relacionadas.
+Quiere especificar el comportamiento de un tipo de dato en particular, pero no le preocupa quién lo implementa.
+Quiere tomar ventaja de múltiples herencias.
