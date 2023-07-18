@@ -1,7 +1,7 @@
 package OOP_Java.masterobjuno;
 
-import OOP_Java.masterobjdos.Ninja;
-import OOP_Java.masterobjdos.Samurai;
+import OOP_Java.masterobjdos.Ninja;//Clase para wizard
+import OOP_Java.masterobjdos.Samurai;//Clase para wizard
 import OOP_Java.masterobjdos.Wizard;//Clase para wizard
 
 public class HumanTest {
