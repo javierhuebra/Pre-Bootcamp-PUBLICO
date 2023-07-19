@@ -6,7 +6,7 @@ public class Galaxy extends Phone implements Ringable {
     }
     @Override
     public String ring() {
-        System.out.println("\n-------------------------\nSonido de Android!!!"+ this.getRingTone());
+        System.out.println("-------------------------\nSonido de Android!!!"+ this.getRingTone());
 
         return this.getRingTone();
     }
@@ -16,6 +16,7 @@ public class Galaxy extends Phone implements Ringable {
         return "unlocked Android";
     }
     @Override
+    @Deprecated //Me tacha el metodo cuando lo invoco
     public void displayInfo() {
         System.out.println("\nCaracteristicas de celu Android:");
         System.out.printf("Version Number: %s - Batery: %d %% - Carrier: %s - Ringtone: %s",this.getVersion(), this.getBatteryPercentage(), this.getCarrier(), this.getRingTone());

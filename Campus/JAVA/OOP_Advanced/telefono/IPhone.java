@@ -8,7 +8,7 @@ public class IPhone extends Phone implements Ringable {
     @Override
     public String ring() {
         
-        System.out.println("\n-------------------------\nSonido de iOS!!!"+ this.getRingTone());
+        System.out.println("-------------------------\nSonido de iOS!!!"+ this.getRingTone());
 
         return this.getRingTone();
     }
