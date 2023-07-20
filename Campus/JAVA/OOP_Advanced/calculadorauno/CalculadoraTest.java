@@ -7,6 +7,7 @@ public class CalculadoraTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // CALCULADORA 1 ------------------------------------------------------------
         Calculadora cuenta = new Calculadora();
 
         double numberA;
@@ -30,10 +31,27 @@ public class CalculadoraTest {
         cuenta.setOperation(operator);
         cuenta.setOperandTwo(numberB);
 
-        System.out.println("El resultado de "+numberA+" "+operator+" "+numberB+" es "+ cuenta.getResult());
-
+        System.out.println("El resultado de " + numberA + " " + operator + " " + numberB + " es " + cuenta.getResult());
 
         System.out.println();
+
+        // ---------------------------------------------------------------------------
+
+        // CALCULADORA 2 -------------------------------------------------------------
+        // Este codigo no respeta la separacion en terminos, lo continuaré mas adelante
+        /*
+         * CalculadoraDos calculadora = new CalculadoraDos();
+         * calculadora.performOperation(5.0);
+         * calculadora.performOperation('+');
+         * calculadora.performOperation(3.0);
+         * calculadora.performOperation('*');
+         * calculadora.performOperation(2.0);
+         * calculadora.performOperation('-');
+         * calculadora.performOperation(10.0);
+         * calculadora.performOperation('/');
+         * calculadora.performOperation(2.0);
+         * calculadora.result();
+         */
 
     }
 
