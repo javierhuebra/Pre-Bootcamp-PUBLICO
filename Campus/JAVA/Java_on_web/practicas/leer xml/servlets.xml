@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+    <display-name>SimpleServletProject</display-name> <!-- Titulo del archivo xml -->
+    
+    <servlet>       <!-- Información dentro de etiqueta servlet -->
+        <servlet-name>simpleServlet</servlet-name>
+        <servlet-class>org.codingdojo.tutorial.SimpleServlet</servlet-class> 
+    </servlet>
+    
+    <servlet-mapping>       <!-- Otra informacion en otra etiqueta que se llama servlet-mapping -->
+        <servlet-name>simpleServlet</servlet-name> 
+        <url-pattern>/simpleServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>           <!-- Otro servlet -->
+        <servlet-name>xmlServlet</servlet-name>
+        <servlet-class>or.codingdojo.tutorial.XmlServlet</servlet-class> 
+    </servlet>
+    
+    <servlet-mapping>                           <!-- Otro mapeo para servlet -->
+        <servlet-name>xmlServlet</servlet-name> 
+        <url-pattern>/xmlServletpath</url-pattern>
+    </servlet-mapping>
+    
+    <welcome-file-list> <!-- Etiqueta que muestra la info de lo primero que se ejecuta puede ser -->
+    <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

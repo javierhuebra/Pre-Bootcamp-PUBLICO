@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8">
+<meriendaCenaMenu>
+    <item category="merienda">
+        <name>Cafe con leche y medialunas</name>
+        <description>Un desayuno clasico argentino</description>
+        <price>$1.99</price>
+    </item>
+    <item category="merienda">
+        <name>Mate con tortafritas</name>
+        <description>Otro desayuno que se consume en la casa por lo general ya que no se compra el mate en un restaurant</description>
+        <price>$3.99</price>
+    </item>
+
+    <item category="cena">
+        <name>Asado de novillo</name>
+        <description>Carne asada sabrosa sabrosaaaa</description>
+        <price>$10.99</price>
+    </item>
+    <item category="cena">
+        <name>Sopa de maní</name>
+        <description>Un plato exquisito</description>
+        <price>$2.99</price>
+    </item>
+     
+</meriendaCenaMenu>

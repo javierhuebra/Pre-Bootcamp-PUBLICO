@@ -1,0 +1,26 @@
+5 PRINCIPIOS SOLID
+
+1- Responsabilidad única: 
+        Cada funcion hace una sola cosa.
+
+2- Principio abierto / cerrado:
+        Lo complicado al implementar este principio es predecir por donde se debe extender nuestro sistema. 
+        Las clases se deben pensar como si fueran a extenderse.
+
+3- Principio de Sustitución de Liskov: 
+        “Cualquier clase debería poder ser sustituible por una subclase de esta”.
+        Clase rectangulo con clase cuadrado por ejemplo. 
+        Cuadrado tiene misma altura que base pero puede emular todo el comportamiento de la clase rectangulo.
+
+4- Principio de Segregación de Interfaces: 
+        “Ningún cliente debiera ser forzado a implementar métodos que no va a usar”.
+        Separar una interfaz con múltiples funcionalidades en varias interfaces con pocas funcionalidades cada una. 
+
+5- Inversión de Dependencias: 
+        “Los módulos de alto nivel no deben depender de los módulos de bajo nivel, 
+        ambos deben depender de abstracciones. Las abstracciones no deben depender del detalle.
+        Es el detalle el que debe depender de las abstracciones”
+
+        Para lograr bajo acoplamiento, esto es importante, las clases de alto nivel 
+        deben poder interactuar con las clases de bajo nivel sin conocer el detalle de estas últimas, 
+        y deben hacerlo usando “abstracciones”.
